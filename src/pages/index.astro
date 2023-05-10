@@ -1,15 +1,38 @@
 ---
+import Layout from "../layouts/DefaultLayout.astro";
+import MyButton from "../components/MyButton.astro";
+//import "../styles/style.css";
+
+const name = "Pavel";
+const someHtml = "<div>Hi</div>";
+const isCool = true;
+const fruits = ["apple", "orrage", "banana"];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Home">
+  <h1>Main Index Astro</h1>
+  <MyButton>
+    <div>This is</div>
+    <div>my text</div>
+  </MyButton>
+  <div>{name}</div>
+  <div set:html="someHtml"></div>
+  <div>
+    { isCool &&
+      <span>{name}</span>
+    }
+  </div>
+  <div>
+    <ul>
+      { fruits.map((fruit) => (
+        <li class="list-disc">{fruit}</li>
+      ))}
+    </ul>
+  </div>
+</Layout>
+
+<!--<style>
+  h1 {
+    color: red;
+  }
+</style>-->
